@@ -316,27 +316,31 @@ function BufferLoader(context, urlList, callback) {
     let count = 0;
     
     function visualPattern() {
+      if (powered){
+        let visualInterval = setInterval(function () {
+            if (count < 4){
+              visualPatternOne();
+              count += 1;
+            } else if (count >= 4 && count < 8) {
+              visualPatternTwo();
+              count += 1;
+            } else if (count >= 8 && count <= 11) {
+              visualPatternThree();
+              count += 1;
+            } else if (count >= 12 && count < 16) {
+              visualPatternOne();
+              count += 1;
+            } else {
+              clearInterval(visualInterval)
+              console.log("stop visual run")
+              count = 0;
+            }
+            console.log(count);
+          }, 300);  
+      } else {
+        visualPatternFour();
+      }
       
-      let visualInterval = setInterval(function () {
-          if (count < 4){
-            visualPatternOne();
-            count += 1;
-          } else if (count >= 4 && count < 8) {
-            visualPatternTwo();
-            count += 1;
-          } else if (count >= 8 && count <= 11) {
-            visualPatternThree();
-            count += 1;
-          } else if (count >= 12 && count < 16) {
-            visualPatternOne();
-            count += 1;
-          } else {
-            clearInterval(visualInterval)
-            console.log("stop visual run")
-            count = 0;
-          }
-          console.log(count);
-        }, 300);  
     };
     
     let visualBoxArray = Array.from(checkBoxesDiv); //CONVERT NODELIST OF checkBoxesDiv TO ARRAY FOR VISUAL PATTERN 01
@@ -346,6 +350,7 @@ function BufferLoader(context, urlList, callback) {
         selected.classList.toggle("powering-up-one")
       })
       };
+     
      
     function visualPatternTwo(){
       let visualArrayTwo = [
@@ -388,6 +393,11 @@ function BufferLoader(context, urlList, callback) {
       }
     }
     
+    function visualPatternFour(){
+        visualBoxArray.forEach((selected) => {
+       selected.classList.remove("powering-up-one")
+     })
+     };
     
     //------------------------------POWER-----------------------------------
     let powered = false; //default is off
@@ -407,7 +417,7 @@ function BufferLoader(context, urlList, callback) {
         buttonsNeedingPower.forEach(button => button.disabled = false);
         checkBoxes.forEach(button => button.disabled = false);
         console.log("turning on")
-        visualPattern();
+        
       } else { //if power is on do not disable buttons
         buttonsNeedingPower.forEach((element) => { 
         element.disabled = true;  
@@ -416,6 +426,7 @@ function BufferLoader(context, urlList, callback) {
         stop();
         console.log("turning off")
       }
+      visualPattern();
     }
    
     //--------------------------------START STOP CLEAR---------------------------
