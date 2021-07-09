@@ -347,17 +347,6 @@ function BufferLoader(context, urlList, callback) {
       })
       };
      
-     // function visualPatternTwo(){
-     //   let patternArray = visualBoxArray.slice(); //NEW ARRAY FOR THE SMILEY FACE
-     // let deletionIndex = [3, 4, 9, 11, 12, 14, 19, 20, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 42, 45, 50, 51, 52, 53, 56,63, 64, 65, 70, 71]
-      //patternArray + visualBoxArray.slice(5, 7);
-     // for(let i = deletionIndex.length -1; i >= 0; i--){
-      //  patternArray.splice(deletionIndex[i], 1); 
-     // } //WHY DOES THIS WORK??  
-     // patternArray.forEach((selected) => {
-     //   selected.classList.toggle("powering-up-two")
-    //  }) 
-     // }
     function visualPatternTwo(){
       let visualArrayTwo = [
     0, 0, 0, 1, 1, 0, 0, 0,
@@ -424,7 +413,7 @@ function BufferLoader(context, urlList, callback) {
         element.disabled = true;  
         }) 
         clear();
-        stop(); //NEED TO FIGURE OUT WHY STOP IS FIRING 13 TIMES.
+        stop();
         console.log("turning off")
       }
     }
@@ -479,6 +468,7 @@ function BufferLoader(context, urlList, callback) {
           "unchecked-playing"
         );
       });
+
       //---------------------------CLEAR METRONOME-------------
       metroBars.forEach((metroBar) => {
         metroBar.classList.remove("metro-bar-playing")
