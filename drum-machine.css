@@ -1,0 +1,344 @@
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: helvetica, sans-serif;
+  }
+  
+  body {
+    overflow: hidden;
+    background-color: #202020;
+  }
+  
+  .drum-machine-body{
+    background-color: #555555;
+    height: 48rem;
+    width: 40rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 1rem; 
+    border-radius: 1em;
+    border: 2px solid #2C2927;
+  }
+  
+  button {
+    border: 1px solid #1D1D1D;
+  }
+  
+  button:text {
+    user-select: none;
+  }
+  
+  button:focus {
+      outline: none;
+  }
+  
+  button:active {
+      box-shadow: 0px 0px 1px 1px #FFEA75;
+  }
+  
+  button:disabled,
+  button[disabled]{
+    color: black;
+    box-shadow: none;
+  }
+  
+  .control-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px 10px 0px 0px;
+    padding: .3rem;
+    margin-bottom: .4rem;
+  }
+  
+  .control {
+    height: 2.6rem;
+    width: 4.3rem;
+    padding: .3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0px 10px;
+    font-size: .8rem;
+    font-weight: 500; 
+    color: black;
+    background-color: #C2C2C2;
+  }
+  
+  svg {
+    display: block;
+  }
+  
+  .power {
+    width: 4rem;
+    min-width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .powered {
+    fill: #4BEB00;
+    background-color: #A2A1A1;
+  }
+  
+  .play:focus {
+    color: #3A9E00;
+    fill: #3A9E00;
+    font-weight: 700;
+    background-color: #A2A1A1;
+  }
+  
+  .stop:active {
+    background-color: #A2A1A1;
+    color: #E70000;
+    fill: #E70000;
+  }
+  
+  .clear:active {
+    background-color: #A2A1A1;
+    color: #0088E7;
+  }
+  
+  .BPM {
+    width: 3rem;
+    margin-right: 5px;
+    margin-left: 25px;
+    background-color: #C2C2C2;
+   
+  }
+  
+  .bpm-text {
+    color: #C2C2C2;
+    -webkit-text-stroke: .1rem black;
+    font-size: 1.3rem;
+  }
+  
+  .metro-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-self: end;
+    background-color: #000000;
+    width: 7rem;
+    height: 1.5rem;
+    margin-left: auto;
+    
+    border-radius: 5px;
+    margin: .8rem;
+  }
+  
+  .metro-bar{
+    background-color: black;
+    width: .28rem;
+  }
+  
+  .metro-bar-playing{
+    background-color: #4BEB00;
+    border-right: 1px solid #90FF5C;
+    border-left: 1px solid #90FF5C;
+    box-shadow: 0px 0px 3px 1px #ACFF53;
+    margin: 1px 0px 1px 0px;
+  }
+  
+  .drum-pad-grid {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .beat-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-top: 1px solid black;
+    padding: .4rem;
+  }
+  
+  .drum-pads {
+    height: 3.5rem;
+    width: 4.5rem;
+    background-color: #E75D24;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    font-size: 1rem;
+    font-weight: 200; 
+  }
+   
+  .drum-pads:disabled {
+    background-color: #E75D24;
+  }
+  
+  .drum-pads:active {
+    background-color: #C6501E;
+  }
+  
+  .smaller-pad {
+    font-size: .8rem;
+    color: #202020;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #E5E4E4;
+    border-radius: 5px;
+    border: 1.5px solid black;
+    cursor: pointer;
+    opacity: .4;
+  }
+  
+  input[type=checkbox] {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .checkbox-container:hover,
+  .checkbox-container input[type='checkbox']:hover + label::before {
+    background-color: #00B630;
+    border: 2px solid #9AFF7C;
+    opacity: 1;
+  }
+  
+  .beatBox{
+    opacity: 0;
+    position:absolute;
+  }
+  
+  .checked  {
+    background-color: #00E53C;
+    opacity: 1;
+    border: 1px solid #12FF4F;
+  }
+  
+  .checked-playing {
+    border: 1px solid #E7FFD9;
+    box-shadow: 0px 0px 5px 3px #84DA75;
+    opacity: 1; 
+  }
+  
+  .unchecked-playing {
+    border: 1px solid #FCA787;
+    box-shadow: 0px 0px 5px 3px #BC6A4B;
+    opacity: 1;
+  }
+  
+  .powering-up-one {
+    border: 1px solid #E7FFD9;
+    background-color: #D7FFA9;
+    box-shadow: 0px 0px 5px 3px #84DA75;
+    opacity: 1; 
+  }
+  
+  .powering-up-two {
+    border: 1px solid #E7FFD9;
+    background-color: #4C57FF;
+    box-shadow: 0px 0px 5px 3px #84DA75;
+    opacity: 1; 
+  }
+  
+  .powering-up-three {
+    border: 1px solid #E7FFD9;
+    background-color: #FFA9A9;
+    box-shadow: 0px 0px 5px 3px #84DA75;
+    opacity: 1; 
+  }
+  
+  @media screen and (max-width: 500px){
+    
+    body {
+      margin: 1rem 0.5rem;
+      padding: 0px 0px;
+  }
+  
+    
+    .drum-machine-body{
+      max-width: 95%;
+      min-width: 400px;
+      height: auto;
+      padding: .3rem;
+      border-radius: .7rem;
+    }
+
+    
+    .control {
+    height: 2.6rem;
+    width: 3.9rem;
+    font-size: .6rem;
+    font-weight: 500; 
+    padding: auto .1rem; 
+    margin: auto .3rem;
+  }
+  
+  .power {
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+  }
+    
+    .BPM {
+    width: 2.9rem;
+    margin-right: .2rem;
+    margin-left: .5rem;
+  }
+  
+  .bpm-text {
+    -webkit-text-stroke: .0rem black;
+    color: #DCDCDC;
+    font-size: .9rem;
+  }
+  
+  .metro-container{
+    width: 5rem;
+    height: 1.3rem;
+    margin-right: .4rem;
+  }
+  
+  .metro-bar{
+    background-color: black;
+    width: .28rem;
+  }
+    
+   .drum-pad-grid {
+    min-width: 100%;
+  }
+  
+  .beat-row {
+    padding: .4rem;
+  }
+  
+  .drum-pads {
+    height: 3rem;
+    width: 3.4rem;
+    font-size: .8rem;
+    font-weight: 500; 
+  }
+   
+  .smaller-pad {
+    font-size: .7rem;
+  }
+  
+  .checkbox-container {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+      
+    }

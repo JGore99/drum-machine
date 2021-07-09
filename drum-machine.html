@@ -1,0 +1,307 @@
+<!DOCTYPE index.html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="drum-machine-body">
+        <div class="control-row">
+          <button id="power" class="control power">
+            <svg id="power-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+              <path d="M400 54.1c63 45 104 118.6 104 201.9c0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4C7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31c-41.5 30.8-68 79.6-68 134.9c-.1 92.3 74.5 168.1 168 168.1c91.6 0 168.6-74.2 168-169.1c-.3-51.8-24.7-101.8-68.1-134c-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z" />
+            </svg>
+          </button>
+          <button id="play" class="control play needs-power">
+            <svg xmlns="http://www.w3.org/2000/svg" width="0.88em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 448 512">
+              <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"/>
+            </svg>
+            PLAY</button>
+          <button id="stop" class="control stop needs-power">
+            <svg xmlns="http://www.w3.org/2000/svg" width="0.88em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"/></svg>
+            STOP</button>
+          <button id="clear" class="control clear needs-power">CLEAR</button>
+          <input type="number" class="BPM" min=50 max=900 maxlength="3" pattern="\d{3}" value=100 step=10 id="bpm"></input>
+          <h2 class="bpm-text">BPM</h2>
+          <div class="metro-container">
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+            <div class="metro-bar"></div>
+          </div>
+          <!--metro-container-->
+        </div>
+        <!--control row-->
+        <div class="drum-pad-grid">
+          <div id="kick-row" class="beat-row">
+            <button id="kick" class="drum-pads needs-power" value="kick">KICK</br><span class="smaller-pad">(Q)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kick">
+            </div>
+          </div>
+          <!--beat row-->
+          <div id="snare-row" class="beat-row">
+            <button id="snare" class="drum-pads needs-power" value="snare"><span class="pad-text">SNARE</br><span class="smaller-pad">(W)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="snare">
+            </div>
+          </div>
+          <!--snare row-->
+          <div id="openHat-row" class="beat-row">
+            <button id="openHat" class="drum-pads needs-power" value="openHat">O HAT</br><span class="smaller-pad">(E)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="openHat">
+            </div>
+          </div>
+          <!--openHat row-->
+          <div id="closedHat-row" class="beat-row">
+            <button id="closedHat" class="drum-pads needs-power" value="closedHat">C HAT</br><span class="smaller-pad">(A)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="closedHat">
+            </div>
+          </div>
+          <!--closedHat row-->
+          <div id="rim-row" class="beat-row">
+            <button id="rim" class="drum-pads needs-power" value="rim">RIM</br><span class="smaller-pad">(S)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="rim">
+            </div>
+          </div>
+          <!--rim row-->
+          <div id="clap-row" class="beat-row">
+            <button id="clap" class="drum-pads needs-power" value="clap">CLAP</br><span class="smaller-pad">(D)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="clap">
+            </div>
+          </div>
+          <!--clap row-->
+          <div id="frog-row" class="beat-row">
+            <button id="frog" class="drum-pads needs-power" value="frog">FROG</br><span class="smaller-pad">(X)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="frog">
+            </div>
+          </div>
+          <!--frog row-->
+          <div id="kitty-row" class="beat-row">
+            <button id="kitty" class="drum-pads needs-power" value="kitty">KITTY</br><span class="smaller-pad">(C)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="kitty">
+            </div>
+          </div>
+          <!--beat row-->
+          <div id="horn-row" class="beat-row">
+            <button id="horn" class="drum-pads needs-power" value="horn">HORN</br><span class="smaller-pad">(V)</span></button>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox" class="beatBox" value="horn">
+            </div>
+          </div>
+          <!--horn row-->
+      
+        </div>
+        <!--drum-pad-grid-->
+        <div class="sequencer-grid">
+      
+        </div>
+        <!--sequencer-grid-->
+      </div>
+      <!--drum-machine-body-->
+</body>
+
+<script src="drum-machine.js"></script>
+  <link href="drum-machine.css" rel="stylesheet" type="text/css" />
+</html>
